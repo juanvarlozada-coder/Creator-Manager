@@ -1,0 +1,62 @@
+{
+  "version": "1.0",
+  "app_name": "Creator Manager",
+
+  "_paths_note": "All paths below are RELATIVE to the app directory. Edit only if you know what you are doing.",
+  "perfiles_dir": "Perfiles",
+  "historial_path": "history.txt",
+  "estado_path": "state.json",
+  "perfiles_path": "profiles.json",
+  "temas_path": "themes.json",
+  "config_app_path": "app_config.json",
+
+  "_cycle_note": "Cycle frequency/anchor live in app_config.json (user-editable via Settings).",
+  "intervalo_vigilancia_seg": 15,
+
+  "perfiles": {},
+
+  "patrones": {
+    "ChatGPT":     ["chatgpt"],
+    "Gemini":      ["gemini_generated", "gemini"],
+    "TensorArt":   ["ta-", "ta_"],
+    "Kling":       ["kling"],
+    "Higgsfield":  ["hf_"]
+  },
+
+  "extensiones_imagen": [".png", ".jpg", ".jpeg", ".webp", ".bmp", ".gif"],
+  "extensiones_video":  [".mp4", ".mov", ".webm", ".mkv", ".avi"],
+
+  "herramientas": {
+    "ChatGPT": {
+      "tipo": "generaciones_diarias",
+      "limite_diario": 8,
+      "aplica_a": "imagen"
+    },
+    "Gemini": {
+      "tipo": "generaciones_diarias",
+      "limite_diario": 20,
+      "aplica_a": "imagen"
+    },
+    "TensorArt": {
+      "tipo": "creditos_mensuales",
+      "creditos_iniciales": 50.03,
+      "costo_imagen": 0.2,
+      "costo_video_por_segundo_480p": 1.2,
+      "costo_video_por_segundo_720p": 3.0,
+      "umbral_alto_720p_alto": 1280,
+      "umbral_alto_720p_largo": 720,
+      "duracion_min_seg": 3,
+      "duracion_max_seg": 10
+    },
+    "Kling": {
+      "tipo": "mensual",
+      "limite_mensual": 1,
+      "aplica_a": "video"
+    },
+    "Higgsfield": {
+      "tipo": "mensual",
+      "limite_mensual": 1,
+      "aplica_a": "video"
+    }
+  }
+}

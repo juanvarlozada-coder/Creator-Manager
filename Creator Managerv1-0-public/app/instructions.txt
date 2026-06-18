@@ -1,0 +1,141 @@
+============================================
+  CREATOR MANAGER v1.0 Beta — User Guide
+============================================
+
+¿QUÉ ES?
+---------
+Herramienta de gestión de perfiles para creadores de contenido que usan
+IA (ChatGPT, Gemini, Tensor Art, Kling, Higgsfield). Vigila tus carpetas
+de descargas, mueve automáticamente las imágenes y videos generados,
+y controla los créditos/generaciones consumidas por cada perfil.
+
+
+REQUISITOS
+----------
+- Windows 10 o superior.
+- Python 3.11+ instalado (se necesita en el PATH del sistema).
+- Librerías: tkinter (viene con Python), plyer, Pillow, opencv-python.
+  Si alguna falta, abre una terminal y ejecuta:
+    pip install plyer pillow opencv-python
+
+
+CONFIGURACIÓN INICIAL
+---------------------
+1. Double-click "launcher.bat" to open the interface.
+2. Aparecerá un mensaje indicando que no hay perfiles.
+3. Haz clic en el botón verde "＋ Añadir Perfil".
+4. En el diálogo:
+   a) Ingresa un nombre para el perfil (ej: "Juanfev").
+   b) Haz clic en "＋ Agregar carpeta" y selecciona la carpeta de
+      descargas que corresponde a ese perfil.
+   c) Puedes agregar varias carpetas por perfil (si un perfil descarga
+      en más de una ubicación).
+   d) Haz clic en "✓ Añadir perfil".
+5. Repite el proceso para cada perfil que necesites gestionar.
+
+NOTA: Los perfiles se guardan en "perfiles.json". Este archivo contiene
+tus datos personales — NO lo compartas si publicas la herramienta.
+
+
+INICIAR LA VIGILANCIA
+---------------------
+1. En la barra superior, haz clic en "▶ Iniciar vigilancia".
+2. El sistema empezará a revisar las carpetas de descarga cada 15 segundos.
+3. Cuando detecte un archivo nuevo que coincida con una herramienta de IA:
+   - Lo clasifica automáticamente según el nombre del archivo.
+   - Lo mueve a la carpeta del perfil dentro de "Perfiles/<Perfil>/<Año-Mes>/imagenes/"
+     o ".../videos/".
+   - Descuenta los créditos o generaciones correspondientes.
+   - Envía una notificación de escritorio.
+    - Records the movement in "history.txt".
+
+
+PATRONES DE DETECCIÓN
+---------------------
+El sistema identifica los archivos por el NOMBRE del archivo:
+
+  Herramienta    | Patrón en el nombre        | Tipo de archivo
+  ---------------|----------------------------|-----------------
+  ChatGPT        | contiene "chatgpt"          | imagen (.png/.jpg/...)
+  Gemini         | contiene "gemini"           | imagen (.png/.jpg/...)
+  Tensor Art     | contiene "ta-" o "ta_"      | imagen o video
+  Kling          | contiene "kling"            | video (.mp4/...)
+  Higgsfield     | contiene "hf_"              | video (.mp4/...)
+
+Los archivos que NO coincidan con ningún patrón se IGNORAN (no se mueven).
+
+
+CRÉDITOS Y GENERACIONES
+------------------------
+- ChatGPT: 8 generaciones diarias (se reinician cada día).
+- Gemini: 20 generaciones diarias (se reinician cada día).
+- Tensor Art — imágenes: 0.2 créditos cada una.
+- Tensor Art — videos: el costo depende de la duración y resolución.
+  El sistema lee los metadatos del video automáticamente.
+  · 480p: 1.2 créditos/segundo.
+  · 720p: 3.0 créditos/segundo.
+  · Rango de duración: 3 a 10 segundos.
+  · Si no se pueden leer los metadatos, el video se marca como
+    "PENDIENTE" y deberás confirmar la duración y calidad manualmente
+    en la pestaña "Créditos y generaciones".
+- Tensor Art: 50.03 créditos mensuales (se reinician el día 17 de cada mes).
+- Kling: 1 video mensual (se reinicia el día 17).
+- Higgsfield: 1 video mensual (se reinicia el día 17).
+
+Si se alcanza el límite de generaciones o créditos, el archivo se mueve
+igualmente pero se marca como "EXCEDIDO" en el historial.
+
+
+INTERFAZ
+--------
+La interfaz tiene pestañas dinámicas:
+
+- Pestañas de PERFILES (una por perfil):
+  · Selector de ciclo (mes) para navegar entre meses.
+  · Panel izquierdo: galería de imágenes con miniaturas.
+    Doble clic en una imagen para abrirla.
+  · Panel derecho: lista de nombres de videos.
+    Doble clic en un video para abrirlo.
+
+- Pestaña "Créditos y generaciones":
+  · Tabla con el estado de todos los perfiles.
+  · Sección para confirmar videos de Tensor Art pendientes.
+  · Botón para reiniciar el ciclo manualmente.
+  · Botón para eliminar perfiles.
+
+- Pestaña "Historial":
+  · Registro completo de movimientos.
+  · Botón para vaciar el historial.
+
+
+CICLO MENSUAL
+-------------
+El ciclo de facturación se reinicia cada día 17 del mes.
+- El día 17 se crean carpetas nuevas con el mes actual (YYYY-MM).
+- Los créditos de Tensor Art vuelven a 50.03.
+- Los contadores de Kling y Higgsfield se reinician a 0.
+- Los contadores diarios (ChatGPT, Gemini) se reinician cada madrugada.
+
+
+ARCHIVOS DEL SISTEMA
+--------------------
+  config.json      — Configuración general (costos, límites, patrones).
+  perfiles.json    — Tus perfiles y sus carpetas de descarga (datos personales).
+  state_data.json  — Current credit/generation counters.
+  history.txt      — Movement log.
+  Perfiles/        — Carpeta donde se organizan los archivos movidos.
+
+
+NOTIFICACIONES
+--------------
+Recibirás notificaciones de escritorio cada vez que:
+- Se mueva un archivo.
+- Se descuenten créditos o generaciones.
+- Se alcance un límite.
+- Se reinicie el ciclo.
+
+
+SOPORTE
+-------
+Si encuentras errores o tienes sugerencias, revisa el archivo
+"changelog.txt" para ver los cambios en cada versión.

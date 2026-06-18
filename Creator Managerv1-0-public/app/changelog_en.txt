@@ -1,0 +1,29 @@
+================================================
+  CREATOR MANAGER — CHANGELOG
+================================================
+
+-----------------------------------------------
+v1.0 Beta  —  2026-06-17
+-----------------------------------------------
+
+INITIAL RELEASE:
+  • Folder watching with polling every 15 seconds.
+  • Automatic file classification by AI tool:
+    ChatGPT, Gemini, Tensor Art, Kling, Higgsfield.
+  • Automatic move to Profiles/<Profile>/<YYYY-MM>/images|videos/.
+  • Daily generation discounts (ChatGPT: 8, Gemini: 20).
+  • Monthly credit discounts Tensor Art (50.03/mo):
+    - Images: 0.2 credits each.
+    - Videos: variable cost by duration and resolution (480p/720p),
+      read from file metadata with OpenCV.
+  • Monthly counters for Kling (1 video) and Higgsfield (1 video).
+  • Monthly cycle reset on day 17.
+  • Movement history in history.txt (readable format).
+  • Desktop notifications with plyer.
+  • tkinter GUI with image gallery and video list.
+  • Credits & generations table per profile.
+  • Dynamic profile tabs (add/remove from UI).
+  • .bat launcher for quick access.
+  • Multi-language support (English, Spanish, Chinese).
+  • Dark/Light theme support.
+  • GitHub auto-updater (update.bat).

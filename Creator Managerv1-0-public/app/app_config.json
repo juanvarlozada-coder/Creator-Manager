@@ -1,0 +1,10 @@
+{
+  "language": "en",
+  "theme": "dark",
+  "cycle_frequency": "monthly",
+  "cycle_anchor_day": 17,
+  "watch_interval_sec": 15,
+  "notification_sound": true,
+  "auto_start_watch": true,
+  "_first_launch_done": true
+}

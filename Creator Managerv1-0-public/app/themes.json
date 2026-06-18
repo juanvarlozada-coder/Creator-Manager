@@ -1,0 +1,39 @@
+{
+  "_comment": "Themes for Creator Manager. Add your own theme by copying a block and changing the name + colors. Keys: bg, fg, panel_bg, accent, accent_fg, canvas_bg, tab_active, tab_inactive, video_list_bg, font, border.",
+  "light": {
+    "bg": "#f0f0f0",
+    "fg": "#1e1e1e",
+    "panel_bg": "#ffffff",
+    "accent": "#2e7d32",
+    "accent_fg": "#ffffff",
+    "canvas_bg": "#fafafa",
+    "tab_active": "#ffffff",
+    "tab_inactive": "#d0d0d0",
+    "tab_hover": "#e0e0e0",
+    "video_list_bg": "#ffffff",
+    "gallery_bg": "#fafafa",
+    "font": "Segoe UI",
+    "border": "#c0c0c0",
+    "warning": "#a06000",
+    "error": "#b00020",
+    "success": "#2e7d32"
+  },
+  "dark": {
+    "bg": "#1e1e1e",
+    "fg": "#d4d4d4",
+    "panel_bg": "#252526",
+    "accent": "#4caf50",
+    "accent_fg": "#000000",
+    "canvas_bg": "#1e1e1e",
+    "tab_active": "#2d2d30",
+    "tab_inactive": "#1e1e1e",
+    "tab_hover": "#3a3a3a",
+    "video_list_bg": "#1e1e1e",
+    "gallery_bg": "#252526",
+    "font": "Segoe UI",
+    "border": "#3c3c3c",
+    "warning": "#ffb74d",
+    "error": "#ef5350",
+    "success": "#66bb6a"
+  }
+}
